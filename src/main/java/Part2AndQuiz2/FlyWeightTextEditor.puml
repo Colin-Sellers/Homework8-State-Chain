@@ -1,0 +1,52 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+Character o-- CharacterProperties : has a
+CharacterPropertiesFactory *-- CharacterProperties: owns a
+Document *-- CharacterPropertiesFactory: owns a
+Document *-- Character: owns a
+
+class Character{
+- character: char
+- characterProperty: CharacterProperties
+
++ Character(character, characterProperty)
++ setCharacter(character): void
++ setCharacterProperty(characterProperty): void
++ getCharacter(): char
++ getFont(): String
++ getColor(): String
++ getSize(): int
+}
+
+class CharacterProperties{
+- font: String
+- color: String
+- size: int
+
++ CharacterProperties(font, color, size)
++ getFont(): String
++ getColor(): String
++ getSize(): int
+}
+
+class CharacterPropertiesFactory{
+- flyweights: Map<String, CharacterProperties>
+
++ setAndRetrieveFlyweightCharacterProperties(font, color, size): CharacterProperties
++ sizeOfMap(): int
+}
+
+class Document{
+- characters: List<Character>
+- propertiesFactory: CharacterPropertiesFactory
+
++ addCharacter(c, font, color, size): void
++ editCharacterProperties(index, font, color, size): void
++ saveToFile(filename): void
++ loadFromFile(filename): void
+}
+
+
+
+@enduml

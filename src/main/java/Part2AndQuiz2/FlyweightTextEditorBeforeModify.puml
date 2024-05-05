@@ -1,0 +1,142 @@
+@startuml
+'https://plantuml.com/object-diagram
+
+object "<u>document:Document</u>" as doc{
+characters = [character0, character1, character2, character3, character4, character5, character 6, character7, character8, character9, character10, character11, character12, character13, character14, character15]
+propertiesFactory = propertiesFactory
+
+}
+object "<u>propertiesFactory:CharacterPropertiesFactory</u>" as factory{
+flyweights = HashMap
+}
+
+object "<u>properties0:CharacterProperties</u>" as prop1{
+font = "Arial"
+color = "Black"
+size = 16
+}
+object "<u>properties1:CharacterProperties</u>" as prop2{
+font = "Arial"
+color = "Black"
+size = 14
+}
+object "<u>properties2:CharacterProperties</u>" as prop3{
+font = "Verdana"
+color = "Blue"
+size = 18
+}
+object "<u>properties3:CharacterProperties</u>" as prop4{
+font = "Verdana"
+color = "Red"
+size = 12
+}
+
+object "<u>character0:Character</u>" as char1{
+character = 'H'
+characterProperty = properties0
+}
+object "<u>character1:Character</u>" as char2{
+character = 'e'
+characterProperty = properties1
+}
+object "<u>character2:Character</u>" as char3{
+character = 'l'
+characterProperty = properties1
+}
+object "<u>character3:Character</u>" as char4{
+character = 'l'
+characterProperty = properties1
+}
+object "<u>character4:Character</u>" as char5{
+character = 'o'
+characterProperty = properties1
+}
+object "<u>character5:Character</u>" as char6{
+character = 'W'
+characterProperty = properties0
+}
+object "<u>character6:Character</u>" as char7{
+character = 'o'
+characterProperty = properties1
+}
+object "<u>character7:Character</u>" as char8{
+character = 'r'
+characterProperty = properties1
+}
+object "<u>character8:Character</u>" as char9{
+character = 'l'
+characterProperty = properties1
+}
+object "<u>character9:Character</u>" as char10{
+character = 'd'
+characterProperty = properties1
+}
+object "<u>character10:Character</u>" as char11{
+character = 'C'
+characterProperty = properties2
+}
+object "<u>character11:Character</u>" as char12{
+character = 'S'
+characterProperty = properties2
+}
+object "<u>character12:Character</u>" as char13{
+character = '5'
+characterProperty = properties3
+}
+object "<u>character13:Character</u>" as char14{
+character = '8'
+characterProperty = properties3
+}
+object "<u>character14:Character</u>" as char15{
+character = '0'
+characterProperty = properties3
+}
+object "<u>character15:Character</u>" as char16{
+character = '0'
+characterProperty = properties3
+}
+
+map HashMap{
+"ArialBlack16" *--> prop1
+"ArialBlack14" *--> prop2
+"VerdanaBlue18" *--> prop3
+"VerdanaRed12" *--> prop4
+}
+
+char1 o-- prop1
+char2 o-- prop2
+char3 o-- prop2
+char4 o-- prop2
+char5 o-- prop2
+char6 o-- prop1
+char7 o-- prop2
+char8 o-- prop2
+char9 o-- prop2
+char10 o-- prop2
+char11 o-- prop3
+char12 o-- prop3
+char13 o-- prop4
+char14 o-- prop4
+char15 o-- prop4
+char16 o-- prop4
+
+doc *-- factory
+doc *-- char1
+doc *-- char2
+doc *-- char3
+doc *-- char4
+doc *-- char5
+doc *-- char6
+doc *-- char7
+doc *-- char8
+doc *-- char9
+doc *-- char10
+doc *-- char11
+doc *-- char12
+doc *-- char13
+doc *-- char14
+doc *-- char15
+doc *-- char16
+
+factory *-- HashMap
+@enduml
